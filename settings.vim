@@ -27,10 +27,11 @@ set runtimepath^=~/.vim/pack/git-plugins/start/
 " Sets linenumbers
 set number relativenumber
 
-set background=light
+"set background=light
 "set background=dark
 
 "Prettifications
 "autocmd vimenter * colorscheme NeoSolarized
-autocmd vimenter * colorscheme ayu
+"autocmd vimenter * colorscheme ayu
+autocmd vimenter * colorscheme orange-moon
 "autocmd Colorscheme NeoSolarized :hi Keyword gui=italic cterm=italic

@@ -10,12 +10,12 @@ return require('packer').startup(function(use)
   use {
       'ayu-theme/ayu-vim',
       config = function()
-          vim.api.nvim_exec(
+          vim.cmd(
           [[
           let ayucolor="light"
           "let ayucolor="mirage"
           "let ayucolor="dark"
-          ]], false)
+          ]])
       end
   }
   use { 'sts10/vim-pink-moon' }
@@ -25,20 +25,20 @@ return require('packer').startup(function(use)
   use {
       'joshdick/onedark.vim',
       config = function()
-          vim.api.nvim_exec(
+          vim.cmd(
           [[
           "Hide ~'s
           let g:onedark_hide_endofbuffer = 1
 
           "Enable italics
           let g:onedark_terminal_italics = 1
-          ]], false)
+          ]])
       end
   }
   use {
       'overcache/NeoSolarized',
       config = function()
-          vim.api.nvim_exec(
+          vim.cmd(
           [[
           " Default value is "normal", Setting this option to "high" or "low" does
           " use the same Solarized palette but simply shifts some values up or
@@ -66,7 +66,7 @@ return require('packer').startup(function(use)
           " of bold text output by commands like `ls` aren't what you expect, you
           " might want to try disabling this option. Default value:
           let g:neosolarized_termBoldAsBright = 1
-          ]], false)
+          ]])
       end
   }
 
@@ -75,16 +75,16 @@ return require('packer').startup(function(use)
   use { 'b3nj5m1n/kommentary' }
 
   use {
-    'SirVer/utlisnips',
+    'SirVer/ultisnips',
     config = function()
-      vim.api.nvim_exec(
+      vim.cmd(
       [[
       " Trigger configuration. You need to change this to something else
       " than <tab> if you use https://github.com/Valloric/YouCompleteMe.
       let g:UltiSnipsExpandTrigger="<tab>"
       let g:UltiSnipsJumpForwardTrigger="<c-s>"
       let g:UltiSnipsJumpBackwardTrigger="<c-a>"
-      ]], false) -- We dont need any return values
+      ]]) -- We dont need any return values
     end
   }
   use { 'honza/vim-snippets' }
@@ -99,7 +99,7 @@ return require('packer').startup(function(use)
   use {
     'vimwiki/vimwiki',
     config = function()
-      vim.api.nvim_exec(
+      vim.cmd(
       [[
       "Autopopulate the header of every new vimwiki file
       let g:vimwiki_auto_header=1
@@ -110,7 +110,7 @@ return require('packer').startup(function(use)
 
       "Easy access to my buffer file
       nmap <Leader>c :split ~/vimwiki/Buffer.wiki<Enter>
-      ]], false) -- We dont need any return values
+      ]]) -- We dont need any return values
     end
   }
 
@@ -178,4 +178,9 @@ return require('packer').startup(function(use)
     end
   }
 
+  use {
+    'kyazdani42/nvim-tree.lua',
+    requires = 'kyazdani42/nvim-web-devicons',
+    config = function() require('configs/plugins/nvim-tree') end
+  }
 end)
