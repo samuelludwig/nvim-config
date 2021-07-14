@@ -19,7 +19,7 @@ return require('packer').startup(function(use)
     end
   }
   use { 'sts10/vim-pink-moon' }
-  use { 'arcticicestudio/nord-vim' }
+  use { 'shaunsingh/nord.nvim' }
   use { 'kamwitsta/flatwhite-vim' }
   use { 'rktjmp/lush.nvim' }
   use { 'navarasu/onedark.nvim' }
@@ -76,7 +76,8 @@ return require('packer').startup(function(use)
     requires = { 'nvim-lua/popup.nvim', 'nvim-lua/plenary.nvim' },
     config = function()
       local bind_telescope_cmd = function(bind, command)
-        local cmd_string = [[<cmd>Telescope ]] .. command .. [[<cr>]]
+        local cmd_string
+          = [[<cmd>lua require('telescope.builtin').]] .. command .. [[()<cr>]]
         return vim.api.nvim_set_keymap('n', bind, cmd_string, { noremap = true })
       end
       bind_telescope_cmd('<leader>ff', 'find_files')
@@ -340,13 +341,13 @@ return require('packer').startup(function(use)
     -- You can also override the default icons.
     vim.g.aerial = {
       icons = {
-        Class          = '';
+        Class          = '',
         -- The icon to use when a class has been collapsed in the tree
-        ClassCollapsed = '喇';
-        Function       = '';
-        Constant       = '[c]'
+        ClassCollapsed = '喇',
+        Function       = '',
+        Constant       = '[c]',
         -- The default icon to use when any symbol is collapsed in the tree
-        Collapsed      = '▶';
+        Collapsed      = '▶',
       }
     }
     end
