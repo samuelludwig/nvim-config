@@ -355,6 +355,7 @@ return require('packer').startup(function(use)
 
   use {
     "folke/zen-mode.nvim",
+    requires = { 'folke/twilight.nvim' },
     config = function()
       require("zen-mode").setup {
         window = {
@@ -408,6 +409,7 @@ return require('packer').startup(function(use)
 
   use {
     "folke/twilight.nvim",
+    requires = { 'nvim-treesitter/nvim-treesitter' },
     config = function()
       require("twilight").setup {
         dimming = {
