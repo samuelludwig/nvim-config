@@ -7,8 +7,8 @@ return require('packer').startup(function(use)
     disable = true
   }
 
-  use {
-    'ayu-theme/ayu-vim',
+  use { 'rktjmp/lush.nvim' }
+  use { 'ayu-theme/ayu-vim',
     config = function()
       vim.cmd(
       [[
@@ -62,8 +62,7 @@ return require('packer').startup(function(use)
   use { 'Th3Whit3Wolf/space-nvim' }
   use { 'ray-x/aurora' }
   use { 'tanvirtin/monokai.nvim' }
-  use {
-    'maaslalani/nordbuddy',
+  use { 'maaslalani/nordbuddy',
     config = function()
       vim.g.nord_underline_option = 'none'
       vim.g.nord_italic = true
@@ -109,7 +108,6 @@ return require('packer').startup(function(use)
     end
   }
   use { 'kamwitsta/flatwhite-vim' }
-  use { 'rktjmp/lush.nvim' }
   use { 'navarasu/onedark.nvim' }
   use {
     'ishan9299/nvim-solarized-lua',
