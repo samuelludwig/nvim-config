@@ -18,42 +18,108 @@ return require('packer').startup(function(use)
       ]])
     end
   }
+  use { 'rafamadriz/neon',
+    config = function()
+      vim.g.neon_style = 'doom' -- one of 'doom', 'default', 'dark' and 'light'
+      vim.g.neon_italic_comment = true -- Italic text for comments
+      vim.g.neon_italic_keyword = false -- Applies to conditionals and keywords like for, do, while, loops etc.
+      vim.g.neon_italic_boolean = false -- true and false
+      vim.g.neon_italic_function = false -- Applies to function (calls and definitions), method (calls and definitions) and built-in functions.
+      vim.g.neon_italic_variable = false -- Applies to variable names that are defined by the languages, like this or self. And any variable name that does not have another highlight group.
+      vim.g.neon_bold = true -- Applies to error and warning messages, functions (calls and definitions), lsp virtual text, etc.
+    end
+  }
+  use { 'marko-cerovac/material.nvim',
+    config = function()
+      vim.g.material_style = 'oceanic' -- The theme comes in five styles, 'darker', 'lighter', 'palenight', 'oceanic' and 'deep ocean'
+      vim.g.material_contrast = true -- Make sidebars and popup menus like nvim-tree and telescope have a different background
+      vim.g.material_lighter_contrast = false -- Increase the contrast for the 'lighter' variant of the theme
+      vim.g.material_italic_comments = false -- Make comments italic
+      vim.g.material_italic_keywords = false -- Make keywords like if, for, while etc. italic
+      vim.g.material_italic_functions = false -- Make function calls and names italic
+      vim.g.material_italic_variables = false -- Make variable names and identifiers italic
+      vim.g.material_borders = false -- Enable the border between verticaly split windows visable
+      vim.g.material_disable_background = false -- Disable the setting of background color so that NeoVim can use your terminal background
+      vim.g.material_hide_eob = false -- Hide the end of buffer lines ( ~ )
+      vim.g.material_variable_color = '#717CB4' -- Set a custom color for variables and fields
+      --vim.g.material_custom_colors = {} -- Override the default colors and use your own
+    end
+  }
+  use { 'bluz71/vim-moonfly-colors',
+    config = function()
+      vim.g.moonflyCursorColor = 1
+      vim.g.moonflyTerminalColors = 1
+      vim.g.moonflyUnderlineMatchParen = 1
+      vim.g.moonflyItalics = 1
+      vim.g.moonflyNormalFloat = 0
+    end
+  }
+  use { 'sainnhe/sonokai' } -- Settings found in `:help sonokai`
+  use { 'sainnhe/edge' }
+  use { 'sainnhe/everforest' }
+  use { 'sainnhe/gruvbox-material' }
+  use { 'adisen99/codeschool.nvim', requires = { 'rktjmp/lush.nvim' } } -- Requires other settings to be enabled
+  use { 'Th3Whit3Wolf/space-nvim' }
+  use { 'ray-x/aurora' }
+  use { 'tanvirtin/monokai.nvim' }
+  use {
+    'maaslalani/nordbuddy',
+    config = function()
+      vim.g.nord_underline_option = 'none'
+      vim.g.nord_italic = true
+      vim.g.nord_italic_comments = false
+      vim.g.nord_minimal_mode = false
+      --require('nordbuddy').colorscheme(
+      -- This function takes a table as argument.
+      -- If an empty table is passed, these values are implicitly assigned.
+      --{
+        -- Underline style used for spelling
+        -- Options: 'none', 'underline', 'undercurl'
+        --underline_option = 'none',
+
+        -- Italics for certain keywords such as constructors, functions,
+        -- labels and namespaces
+        --italic = true,
+
+        -- Italic styled comments
+        --italic_comments = false,
+
+        -- Minimal mode: different choice of colors for Tabs and StatusLine
+        --minimal_mode = false
+      --})
+      end
+    }
+  use { 'kyazdani42/blue-moon' }
+  use { 'mhartington/oceanic-next' }
+  use { 'glepnir/zephyr-nvim' }
+  use { 'rockerBOO/boo-colorscheme-nvim', branch = 'main' }
+  use { 'bkegley/gloombuddy', requires = { 'tjdevries/colorbuddy.vim' } }
+  use { 'tomasiser/vim-code-dark' }
   use { 'sts10/vim-pink-moon' }
   use { 'shaunsingh/nord.nvim' }
+  use { 'shaunsingh/moonlight.nvim',
+    config = function()
+      vim.g.moonlight_italic_comments = true
+      vim.g.moonlight_italic_keywords = true
+      vim.g.moonlight_italic_functions = true
+      vim.g.moonlight_italic_variables = false
+      vim.g.moonlight_contrast = true
+      vim.g.moonlight_borders = false
+      vim.g.moonlight_disable_background = false
+    end
+  }
   use { 'kamwitsta/flatwhite-vim' }
   use { 'rktjmp/lush.nvim' }
   use { 'navarasu/onedark.nvim' }
   use {
-    'overcache/NeoSolarized',
+    'ishan9299/nvim-solarized-lua',
     config = function()
-      -- Default value is "normal", Setting this option to "high" or "low" does
-      -- use the same Solarized palette but simply shifts some values up or
-      -- down in order to expand or compress the tonal range displayed.
-      vim.g.neosolarized_contrast = "normal"
-
-      -- Special characters such as trailing whitespace, tabs, newlines, when
-      -- displayed using ":set list" can be set to one of three levels
-      -- depending on your needs.  Default value is "normal". Provide "high"
-      -- and "low" options.
-      vim.g.neosolarized_visibility = "normal"
-
-      -- I make vertSplitBar a transparent background color. If you like the
-      -- origin solarized vertSplitBar style more, set this value to 0.
-      vim.g.neosolarized_vertSplitBgTrans = 1
-
-      -- If you wish to enable/disable NeoSolarized from displaying bold,
-      -- underlined or italicized" typefaces, simply assign 1 or 0 to the
-      -- appropriate variable.  Default values:
-      vim.g.neosolarized_bold = 1
-      vim.g.neosolarized_underline = 1
-      vim.g.neosolarized_italic = 0
-
-      -- Used to enable/disable "bold as bright" in Neovim terminal. If colors
-      -- of bold text output by commands like `ls` aren't what you expect, you
-      -- might want to try disabling this option. Default value:
-      vim.g.neosolarized_termBoldAsBright = 1
+      vim.g.solarized_italics = 1
+      vim.g.solarized_visibility = 'normal' -- low normal high
+      vim.g.solarized_diffmode = 'normal' -- low normal high
     end
   }
+
 
   use {
     'nvim-treesitter/nvim-treesitter',
