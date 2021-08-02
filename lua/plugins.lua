@@ -7,6 +7,16 @@ return require('packer').startup(function(use)
     disable = true
   }
 
+  use {
+    'phaazon/hop.nvim',
+    as = 'hop',
+    config = function()
+      -- you can configure Hop the way you like here; see :h hop-config
+      require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
+      vim.api.nvim_set_keymap('n', 'h', "<cmd>lua require'hop'.hint_words()<cr>", {})
+    end
+  }
+
   use { 'rktjmp/lush.nvim' }
   use { 'ayu-theme/ayu-vim',
     config = function()
